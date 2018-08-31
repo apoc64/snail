@@ -23,15 +23,22 @@ func snail(inputMatrix: [[Int]]) -> [Int] {
     for num in firstArray {
         result.append(num)
     }
+    if matrix.isEmpty { return result }
     for (i, _) in matrix.enumerated() {
         result.append(matrix[i].removeLast())
     }
+    if matrix.isEmpty { return result }
     let lastArray = matrix.removeLast()
     for num in lastArray.reversed() {
         result.append(num)
     }
+    if matrix.isEmpty { return result }
     for (i, _) in matrix.reversed().enumerated() {
         result.append(matrix[i].removeFirst())
+    }
+    
+    if !matrix.isEmpty {
+        result += snail(inputMatrix: matrix)
     }
     
     return result
