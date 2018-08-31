@@ -15,11 +15,27 @@ let arrayMatrix = [
     [7, 8, 9]
 ];
 
-func snail(matrix: [[Int]]) -> [Int] {
+func snail(inputMatrix: [[Int]]) -> [Int] {
+    var matrix = inputMatrix
+    var result: [Int] = []
     
+    let firstArray = matrix.removeFirst()
+    for num in firstArray {
+        result.append(num)
+    }
+    for (i, _) in matrix.enumerated() {
+        result.append(matrix[i].removeLast())
+    }
+    let lastArray = matrix.removeLast()
+    for num in lastArray.reversed() {
+        result.append(num)
+    }
+    for (i, _) in matrix.reversed().enumerated() {
+        result.append(matrix[i].removeFirst())
+    }
     
-    return [1, 2, 3]
+    return result
 }
 
-print(snail(matrix: arrayMatrix))
+print(snail(inputMatrix: arrayMatrix))
 //#=> [1, 2, 3, 6, 9, 8, 7, 4, 5]
