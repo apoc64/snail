@@ -46,3 +46,4 @@ func snail(inputMatrix: [[Int]]) -> [Int] {
 
 print(snail(inputMatrix: arrayMatrix))
 //#=> [1, 2, 3, 6, 9, 8, 7, 4, 5]
+print(snail(inputMatrix: [[1, 2, 3, 1], [4, 5, 6, 4], [7, 8, 9, 7], [7, 8, 9, 7]]))
